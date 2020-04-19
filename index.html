@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>sample</title>
+    <script src=./app.js></script> 
+    <script>
+
+        window.onload = function() {
+            var test = require('app');
+        
+            const node = test();
+            const root = document.getElementById("rootNode")
+            root.appendChild(node);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="rootNode"></div>
+</body>
+
+</html>
