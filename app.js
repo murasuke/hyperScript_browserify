@@ -385,7 +385,6 @@ module.exports = function(arr, obj){
 },{}],"app":[function(require,module,exports){
 var h = require('hyperscript');
 
-
 module.exports = function test(){
     return h("div", {style:{color:"blue"}}, h("span", {}, "春はあけぼの"));
 }
