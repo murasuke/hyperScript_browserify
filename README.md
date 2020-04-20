@@ -5,8 +5,10 @@ hyperScriptをbrowserifyでブラウザから利用するサンプル。
 
 - やっていること
 
-    - main.jsでhyperScriptをrequire()して、nodeを生成して返すメソッドを公開する。
-    - hyperscriptをrequire()して、それを公開し、ブラウザから利用可能とする。
+    - ブラウザが読み込むjsファイルででhyperScriptをrequire()して利用する。
+    - hyperscriptのメソッド自体をexportし、ブラウザから利用する。
+
+ブラウザが利用するjsファイル
 ~~~javascript
 var h = require('hyperscript');
 
