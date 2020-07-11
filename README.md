@@ -1,22 +1,26 @@
 # hyperScript_browserify
 
-hyperScriptをbrowserifyでブラウザから利用するサンプル。
+hyperScript(h()でDOM生成)をブラウザから利用するサンプル。
+ブラウザで利用するため、browserifyでバンドルが必要。
 
 
 - やっていること
 
-    - ブラウザが読み込むjsファイルででhyperScriptをrequire()して利用する。
-    - hyperscriptのメソッド自体をexportし、ブラウザから利用する。
+    - hyperScriptをrequire()したjavascriptをブラウザで読み込む。
+    - hyperScriptを直接ブラウザから利用するため、エクスポートする。
+    - browserifyしたモジュールをブラウザで読み込むために「モジュール名の指定」を行う
+
+        - ↑が意外とわからずにネックだった
 
 ブラウザが利用するjsファイル
 ~~~javascript
 var h = require('hyperscript');
 
 module.exports = {
-    creatoSampleDom: ()=>{
+    createSampleDom: ()=>{
         return h("div", {style:{color:"blue"}}, h("span", {}, "春はあけぼの"));
     },
-    h: h,
+    h: h,   // h()自体をエクスポート。ブラウザ側で直接利用できる。
 }
 ~~~
 
@@ -56,6 +60,10 @@ package.jsonの"scripts"に、下記を追加。
 
     "build": "browserify -r ./main.js:app > app.js",`
     "serve": "http-server",`
+
+ビルドと実行
+    npm run build
+    npm run serve
 
 http-serverが導入されていない場合はnpmで追加する。
 
